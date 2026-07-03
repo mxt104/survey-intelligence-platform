@@ -1,9 +1,11 @@
 /**
  * API Wrapper for Backend Integration
  */
+const API_BASE =
+  import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 export async function request(url, options = {}) {
-  const response = await fetch(url, options);
+  const response = await fetch(`${API_BASE}${url}`, options);
   if (!response.ok) {
     const errText = await response.text();
     let message = "Network request failed";
