@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Survey Generator | Industrial Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-background": "#191c1e",
+                      "tertiary-container": "#586076",
+                      "surface-tint": "#4d44e3",
+                      "inverse-primary": "#c3c0ff",
+                      "primary-fixed": "#e2dfff",
+                      "background": "#f7f9fb",
+                      "on-secondary": "#ffffff",
+                      "on-error": "#ffffff",
+                      "on-surface": "#191c1e",
+                      "surface-container-high": "#e6e8ea",
+                      "primary": "#3525cd",
+                      "outline-variant": "#c7c4d8",
+                      "inverse-surface": "#2d3133",
+                      "secondary": "#006b5f",
+                      "surface-container-low": "#f2f4f6",
+                      "tertiary": "#41485e",
+                      "outline": "#777587",
+                      "surface-container-lowest": "#ffffff",
+                      "surface-dim": "#d8dadc",
+                      "on-secondary-fixed-variant": "#005048",
+                      "on-secondary-container": "#006f64",
+                      "secondary-fixed-dim": "#4fdbc8",
+                      "on-tertiary-fixed": "#131b2e",
+                      "surface-container-highest": "#e0e3e5",
+                      "primary-container": "#4f46e5",
+                      "on-tertiary-container": "#d4dbf5",
+                      "tertiary-fixed": "#dae2fd",
+                      "error-container": "#ffdad6",
+                      "secondary-container": "#6df5e1",
+                      "on-primary-fixed-variant": "#3323cc",
+                      "surface-container": "#eceef0",
+                      "tertiary-fixed-dim": "#bec6e0",
+                      "surface-bright": "#f7f9fb",
+                      "on-secondary-fixed": "#00201c",
+                      "on-primary-container": "#dad7ff",
+                      "error": "#ba1a1a",
+                      "primary-fixed-dim": "#c3c0ff",
+                      "on-tertiary-fixed-variant": "#3f465c",
+                      "inverse-on-surface": "#eff1f3",
+                      "on-primary-fixed": "#0f0069",
+                      "on-primary": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#464555",
+                      "surface": "#f7f9fb",
+                      "secondary-fixed": "#71f8e4",
+                      "on-error-container": "#93000a",
+                      "surface-variant": "#e0e3e5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "margin-desktop": "32px",
+                      "gutter": "24px",
+                      "xs": "4px",
+                      "max-width": "1440px",
+                      "md": "16px",
+                      "xl": "32px",
+                      "sm": "8px",
+                      "unit": "4px",
+                      "2xl": "48px",
+                      "margin-mobile": "16px"
+              },
+              "fontFamily": {
+                      "body-lg": ["Inter"],
+                      "headline-sm": ["Inter"],
+                      "title-md": ["Inter"],
+                      "display-lg": ["Inter"],
+                      "label-sm": ["Inter"],
+                      "mono-data": ["Inter"],
+                      "body-md": ["Inter"],
+                      "display-lg-mobile": ["Inter"]
+              },
+              "fontSize": {
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                      "mono-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                      "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .card-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01); }
+        .circular-progress {
+            background: conic-gradient(#4f46e5 352.8deg, #e0e3e5 0deg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .circular-progress::before {
+            content: "";
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body class="bg-surface">
+<!-- SideNavBar (Authority: JSON) -->
+<nav class="bg-surface-container-lowest dark:bg-inverse-surface h-screen w-64 fixed left-0 top-0 border-r border-outline-variant dark:border-outline flex flex-col h-full py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-title-md text-title-md font-bold text-on-surface dark:text-inverse-on-surface">Industrial Intel</h1>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Marketing B2B</p>
+</div>
+<div class="flex-grow space-y-xs">
+<!-- Mapping Active State: "AI Generator" is active -->
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>AI Generator</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span>Survey Builder</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">search_insights</span>
+<span>SEO Center</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span>Content Studio</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Segmentation</span>
+</a>
+</div>
+<div class="mt-auto border-t border-outline-variant pt-lg px-sm">
+<a class="flex items-center gap-sm px-md py-sm hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 text-on-surface-variant font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</nav>
+<!-- TopNavBar (Authority: JSON) -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 z-40 bg-surface-container-lowest/80 backdrop-blur-md dark:bg-inverse-surface/80 border-b border-outline-variant dark:border-outline shadow-sm flex justify-between items-center px-margin-desktop">
+<div class="flex items-center gap-lg w-1/2">
+<h2 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary whitespace-nowrap">AI Survey Generator</h2>
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-primary/10 transition-all">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 py-2 text-body-md font-body-md focus:ring-0" placeholder="Search product campaigns..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors">dark_mode</button>
+<div class="h-8 w-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs1-0oNF0ROj-1vk0jxBz1QGKcVk721Ybwr_zXaP3hBEXFEdUJflvHD2lZr35wcQRsvQwrlyNhAlyo2iT2YzK3OSjRiruITZ_Da2TkcMJvxPjSMqfkBoYzBWSNmKZq0bCwWvA-FimLz0wo5krNNtqmk_HoX_7gmZ6TUXl1Mjjjo4yc0TrwHYyvJ6rO0xrp-AFVZ289YyrCEjdbpuiVOJUzYZphP2m7cgUMf15cUU4FhafW-rd3LEYO1l2xmkWJ8Jg4DZ7KwCPSPL8R"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 p-lg">
+<div class="max-w-max-width mx-auto grid grid-cols-12 gap-lg">
+<!-- Left Column: Input & Configuration -->
+<div class="col-span-12 lg:col-span-4 space-y-lg">
+<!-- PDF Upload Zone -->
+<section class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant">
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Datasheet Upload</h3>
+<div class="border-2 border-dashed border-outline-variant rounded-lg p-xl flex flex-col items-center justify-center gap-sm bg-surface-container-low hover:border-primary transition-colors cursor-pointer group" id="dropzone">
+<span class="material-symbols-outlined text-4xl text-outline group-hover:text-primary transition-colors">upload_file</span>
+<p class="text-body-md font-body-md text-on-surface text-center">Drag and drop product datasheets</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">PDF, DOCX up to 10MB</p>
+<button class="mt-md px-lg py-sm bg-primary text-on-primary font-body-md rounded-lg hover:opacity-90 active:scale-95 transition-all">Select File</button>
+</div>
+</section>
+<!-- Product Details Form -->
+<section class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant">
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Product Intelligence</h3>
+<form class="space-y-md">
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-xs">Product Name</label>
+<input class="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md font-body-md focus:ring-2 focus:ring-primary/10 outline-none" type="text" value="QuantumEdge Server Node"/>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-xs">Target Audience</label>
+<select class="w-full border border-outline-variant rounded-lg px-md py-sm text-body-md font-body-md focus:ring-2 focus:ring-primary/10 outline-none appearance-none">
+<option>IT Decision Makers (Enterprise)</option>
+<option>DevOps Engineers</option>
+<option>System Architects</option>
+</select>
+</div>
+<div>
+<label class="block text-label-sm font-label-sm text-on-surface-variant mb-xs">Key Features</label>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm font-label-sm flex items-center gap-xs">
+                                    NVMe-oF <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm font-label-sm flex items-center gap-xs">
+                                    Scalability <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<span class="bg-secondary-container text-on-secondary-container px-sm py-1 rounded-full text-label-sm font-label-sm flex items-center gap-xs">
+                                    Zero Trust <span class="material-symbols-outlined text-[14px] cursor-pointer">close</span>
+</span>
+<button class="border border-outline-variant text-outline px-sm py-1 rounded-full text-label-sm font-label-sm hover:border-primary hover:text-primary transition-colors">+ Add Tag</button>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary py-md rounded-lg font-title-md text-title-md shadow-lg shadow-primary/20 hover:opacity-95 active:scale-[0.98] transition-all flex items-center justify-center gap-sm" type="button">
+<span class="material-symbols-outlined">auto_awesome</span>
+                            Regenerate Survey
+                        </button>
+</form>
+</section>
+<!-- Quality Score Panel (Footer/Sidebar Context) -->
+<section class="bg-surface-container-lowest p-lg rounded-xl card-shadow border border-outline-variant relative overflow-hidden">
+<div class="flex items-center justify-between mb-md">
+<h3 class="font-title-md text-title-md text-on-surface">Quality Score</h3>
+<span class="bg-emerald-100 text-emerald-700 px-sm py-xs rounded-lg text-label-sm font-bold">OPTIMIZED</span>
+</div>
+<div class="flex items-center gap-lg">
+<div class="relative h-20 w-20 circular-progress">
+<span class="relative z-10 font-bold text-lg text-on-surface">98%</span>
+</div>
+<div>
+<div class="flex items-center gap-xs text-primary mb-1">
+<span class="material-symbols-outlined text-md" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-label-sm font-bold uppercase tracking-wider">AI Confidence</span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant leading-tight">High relevance to uploaded datasheet and target audience.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Workspace & Previews -->
+<div class="col-span-12 lg:col-span-8 space-y-lg">
+<!-- Layout Switcher & Actions -->
+<div class="flex justify-between items-center bg-white p-sm rounded-lg border border-outline-variant">
+<div class="flex gap-xs">
+<button class="px-md py-sm bg-surface-container-low text-primary font-bold rounded-lg text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">edit_document</span>
+                            EDITING MODE
+                        </button>
+<button class="px-md py-sm text-on-surface-variant hover:bg-surface-container-low rounded-lg text-label-sm transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">visibility</span>
+                            LIVE PREVIEW
+                        </button>
+</div>
+<div class="flex gap-md px-md">
+<button class="text-primary font-bold text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">download</span>
+                            EXPORT
+                        </button>
+<button class="text-primary font-bold text-label-sm flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm">send</span>
+                            PUBLISH
+                        </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg h-full">
+<!-- Generated Questions Panel -->
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Generated Questions</h3>
+<span class="text-label-sm text-on-surface-variant">4 Questions</span>
+</div>
+<!-- Question Card: NPS -->
+<div class="bg-white p-md rounded-xl border border-outline-variant card-shadow group">
+<div class="flex justify-between items-start mb-sm">
+<span class="text-label-sm font-bold text-primary uppercase">Net Promoter Score</span>
+<div class="flex gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">drag_indicator</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">edit</button>
+</div>
+</div>
+<p class="text-body-md font-medium text-on-surface mb-md">Based on the datasheet, how likely are you to recommend QuantumEdge to a colleague?</p>
+<div class="flex justify-between gap-1">
+<div class="h-8 w-8 flex items-center justify-center text-label-sm border border-outline-variant rounded bg-surface">0</div>
+<div class="h-8 w-8 flex items-center justify-center text-label-sm border border-outline-variant rounded bg-surface">...</div>
+<div class="h-8 w-8 flex items-center justify-center text-label-sm border border-outline-variant rounded bg-surface">10</div>
+</div>
+</div>
+<!-- Question Card: Multiple Choice -->
+<div class="bg-white p-md rounded-xl border border-outline-variant card-shadow group">
+<div class="flex justify-between items-start mb-sm">
+<span class="text-label-sm font-bold text-primary uppercase">Multiple Choice</span>
+<div class="flex gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">drag_indicator</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">edit</button>
+</div>
+</div>
+<p class="text-body-md font-medium text-on-surface mb-sm">Which feature is most critical for your infrastructure?</p>
+<ul class="space-y-xs">
+<li class="flex items-center gap-sm text-body-md p-sm bg-surface rounded border border-outline-variant/50">
+<div class="h-4 w-4 rounded-full border-2 border-primary"></div>
+                                    Scalable NVMe-oF Protocol
+                                </li>
+<li class="flex items-center gap-sm text-body-md p-sm bg-surface rounded border border-outline-variant/50">
+<div class="h-4 w-4 rounded-full border-2 border-outline"></div>
+                                    Zero Trust Encryption
+                                </li>
+<li class="flex items-center gap-sm text-body-md p-sm bg-surface rounded border border-outline-variant/50">
+<div class="h-4 w-4 rounded-full border-2 border-outline"></div>
+                                    Legacy Integration API
+                                </li>
+</ul>
+</div>
+<!-- Question Card: Rating Scale -->
+<div class="bg-white p-md rounded-xl border border-outline-variant card-shadow group">
+<div class="flex justify-between items-start mb-sm">
+<span class="text-label-sm font-bold text-primary uppercase">Rating Scale</span>
+<div class="flex gap-xs opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">drag_indicator</button>
+<button class="material-symbols-outlined text-sm text-on-surface-variant hover:text-primary">edit</button>
+</div>
+</div>
+<p class="text-body-md font-medium text-on-surface mb-md">Rate the clarity of the technical documentation provided.</p>
+<div class="flex gap-md">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline">star</span>
+</div>
+</div>
+<button class="w-full py-md border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant hover:border-primary hover:text-primary transition-all flex items-center justify-center gap-sm font-medium">
+<span class="material-symbols-outlined">add_circle</span>
+                            Add Custom Question
+                        </button>
+</div>
+<!-- Datasheet Preview Panel -->
+<div class="space-y-md">
+<div class="flex items-center justify-between">
+<h3 class="font-title-md text-title-md text-on-surface">Datasheet Preview</h3>
+<button class="material-symbols-outlined text-on-surface-variant">open_in_full</button>
+</div>
+<div class="bg-surface-container-high rounded-xl p-md aspect-[3/4] border border-outline-variant flex flex-col overflow-hidden">
+<div class="bg-white flex-grow rounded-sm shadow-inner p-xl space-y-md overflow-y-auto">
+<div class="flex justify-between items-start border-b border-outline-variant pb-md">
+<div>
+<h4 class="font-bold text-lg text-primary">QuantumEdge Node v4.2</h4>
+<p class="text-label-sm text-outline">TECHNICAL SPECIFICATIONS</p>
+</div>
+<div class="h-10 w-10 bg-surface-container-high rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface-variant">architecture</span>
+</div>
+</div>
+<div class="space-y-sm">
+<p class="text-body-md font-bold text-on-surface">Overview</p>
+<p class="text-body-md text-on-surface-variant leading-relaxed">The QuantumEdge Server Node provides industry-leading NVMe-oF performance for AI-driven data centers. With integrated Zero Trust security and auto-scaling fabric...</p>
+</div>
+<div class="grid grid-cols-2 gap-md pt-md">
+<div class="bg-surface p-sm rounded border border-outline-variant/30">
+<p class="text-label-sm font-bold text-primary">LATENCY</p>
+<p class="text-title-md font-bold text-on-surface">&lt; 50μs</p>
+</div>
+<div class="bg-surface p-sm rounded border border-outline-variant/30">
+<p class="text-label-sm font-bold text-primary">THROUGHPUT</p>
+<p class="text-title-md font-bold text-on-surface">120 GB/s</p>
+</div>
+</div>
+<div class="pt-lg">
+<div class="h-32 w-full bg-surface-container rounded-lg border-2 border-dashed border-outline-variant flex items-center justify-center">
+<img class="w-full h-full object-cover rounded-lg opacity-50" data-alt="A macro photograph of high-tech server circuit boards illuminated by cool blue and magenta neon lights, emphasizing precision engineering and advanced data processing capabilities in a clean, industrial environment with a high-end corporate minimalist aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5xoCHAaCcgjuO54TBuHOmIFZ66xL5thgZWdWr2jQh-ylDakDeYNhivQcQrvVYzTXbnh3J7W0FkzI3m-qUkm0_ecDNQ5--vnJ6a4YZSNeVIMM8VMCVo9jqQXrbfkC-yr09XCbab_BLKb0scbnLdl1TLO48AEolMMfk82qG7PjJ8sgsWPCDegF4dHkxX446JrCvm4kLDLIX0SwG7izqTO011zeJsLuzVNrJHNhacOdI0yMpxJym9yon-qV1rrpkTxt_TzBCWkG32Daf"/>
+</div>
+</div>
+<p class="text-label-sm text-outline italic">Proprietary and Confidential - Industrial Intelligence Systems</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Micro-interaction for drag-and-drop feedback -->
+<script>
+        const dropzone = document.getElementById('dropzone');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropzone.addEventListener(eventName, () => {
+                dropzone.classList.add('bg-primary/5', 'border-primary');
+            }, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropzone.addEventListener(eventName, () => {
+                dropzone.classList.remove('bg-primary/5', 'border-primary');
+            }, false);
+        });
+    </script>
+</body></html>

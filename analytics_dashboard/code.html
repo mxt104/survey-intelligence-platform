@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Analytics Dashboard | Industrial Intel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#586076",
+                        "surface-tint": "#4d44e3",
+                        "inverse-primary": "#c3c0ff",
+                        "primary-fixed": "#e2dfff",
+                        "background": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "outline-variant": "#c7c4d8",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#006b5f",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#41485e",
+                        "outline": "#777587",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed": "#dae2fd",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#6df5e1",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "on-tertiary-container": "#d4dbf5",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#00201c",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed": "#0f0069",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#71f8e4",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "max-width": "1440px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "2xl": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "mono-data": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "mono-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .shadow-looming {
+            box-shadow: 0 4px 12px 0 rgba(15, 23, 42, 0.02);
+        }
+        .map-container {
+            background-image: radial-gradient(circle at 2px 2px, #e2e8f0 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-lg px-md z-50">
+<div class="flex items-center gap-sm mb-2xl px-sm">
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">insights</span>
+<div>
+<h1 class="font-title-md text-title-md font-bold text-on-surface">Industrial Intel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Marketing B2B</p>
+</div>
+</div>
+<nav class="flex-1 space-y-xs">
+<!-- Active: Analytics -->
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-sm text-label-sm">Dashboard</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label-sm text-label-sm">AI Generator</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">quiz</span>
+<span class="font-label-sm text-label-sm">Survey Builder</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-label-sm text-label-sm">Analytics</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">search_insights</span>
+<span class="font-label-sm text-label-sm">SEO Center</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">edit_note</span>
+<span class="font-label-sm text-label-sm">Content Studio</span>
+</div>
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">groups</span>
+<span class="font-label-sm text-label-sm">Segmentation</span>
+</div>
+</nav>
+<div class="mt-auto border-t border-outline-variant pt-lg space-y-xs">
+<div class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 rounded-lg">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-sm text-label-sm">Settings</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Anchor -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 z-40 bg-surface-container-lowest/80 backdrop-blur-md border-b border-outline-variant flex justify-between items-center px-margin-desktop shadow-sm">
+<div class="flex items-center gap-lg flex-1">
+<div class="relative w-full max-w-md group focus-within:ring-2 focus-within:ring-primary/10 rounded-lg">
+<span class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-lg pl-10 pr-md py-sm focus:ring-0 text-body-md font-body-md" placeholder="Search analytics data..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-sm text-on-surface-variant hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined">dark_mode</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high ml-sm overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0L-FTYD3gKRtI1LhB5eeBBWUPUU0F4tC6vqoFe2XAFC9RzgS4RR9chzX7jVD2QtRPDOoMYD2zO9xVm85KR-dXf_jUOKhSn-MaGXON5_JohUVSYcMpH4va2OaquQ4N6q4O1I1rodope_5f6JfflVIGIGnUpe-QY_2_NN98XuPoxPbP8Zhn2Ms5IKzLFUFYeEQV2wdF-tlfc8Y2YCejH9aSOhJ7P0I7RyY4S4LBQi6lckNb-mvQF0-00F1fwiBznAwmfATzffvTn8_8"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-16 min-h-screen">
+<div class="max-w-[1440px] mx-auto p-margin-desktop space-y-gutter">
+<!-- Dashboard Header & Controls -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-background mb-xs">Analytics Dashboard</h2>
+<p class="text-on-surface-variant font-body-md text-body-md">Real-time performance metrics and cross-segment insights.</p>
+</div>
+<div class="flex flex-wrap items-center gap-sm">
+<div class="flex items-center gap-xs bg-surface-container-lowest border border-outline-variant px-md py-sm rounded-lg shadow-looming">
+<span class="material-symbols-outlined text-outline text-lg">calendar_today</span>
+<select class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm text-on-surface-variant py-0 pr-xl">
+<option>Last 30 Days</option>
+<option>Last Quarter</option>
+<option>Year to Date</option>
+</select>
+</div>
+<div class="flex items-center gap-xs bg-surface-container-lowest border border-outline-variant px-md py-sm rounded-lg shadow-looming">
+<span class="material-symbols-outlined text-outline text-lg">segment</span>
+<select class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm text-on-surface-variant py-0 pr-xl">
+<option>All Segments</option>
+<option>Enterprise</option>
+<option>SME Market</option>
+</select>
+</div>
+<div class="flex items-center gap-xs bg-surface-container-lowest border border-outline-variant px-md py-sm rounded-lg shadow-looming">
+<span class="material-symbols-outlined text-outline text-lg">factory</span>
+<select class="bg-transparent border-none focus:ring-0 font-label-sm text-label-sm text-on-surface-variant py-0 pr-xl">
+<option>All Industries</option>
+<option>Tech &amp; SaaS</option>
+<option>Manufacturing</option>
+</select>
+</div>
+<div class="flex gap-xs ml-sm">
+<button class="bg-primary text-on-primary px-md py-sm rounded-lg flex items-center gap-xs shadow-md active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">file_download</span>
+<span class="font-label-sm text-label-sm">Export Data</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-gutter">
+<!-- Main Chart: Response Distribution -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-looming flex flex-col min-h-[400px]">
+<div class="flex items-center justify-between mb-xl">
+<h3 class="font-title-md text-title-md text-on-surface">Response Distribution</h3>
+<div class="flex items-center gap-md">
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-secondary rounded-full"></div><span class="text-xs font-medium">Positive</span></div>
+<div class="flex items-center gap-xs"><div class="w-3 h-3 bg-primary rounded-full"></div><span class="text-xs font-medium">Neutral</span></div>
+<button class="p-xs text-outline hover:text-primary"><span class="material-symbols-outlined text-lg">more_vert</span></button>
+</div>
+</div>
+<div class="flex-1 flex items-end justify-between gap-md pt-md">
+<!-- Mock Bar Chart -->
+<div class="w-full flex items-end justify-between px-md h-full pb-sm border-b border-outline-variant">
+<!-- Column 1 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-12 group-hover:h-16 transition-all duration-300"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-24"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 01</span>
+</div>
+<!-- Column 2 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-20"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-16"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 05</span>
+</div>
+<!-- Column 3 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-28 group-hover:h-32 transition-all"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-32"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 10</span>
+</div>
+<!-- Column 4 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-36"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-12"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 15</span>
+</div>
+<!-- Column 5 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-16"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-48"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 20</span>
+</div>
+<!-- Column 6 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-40"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-20"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 25</span>
+</div>
+<!-- Column 7 -->
+<div class="flex flex-col items-center gap-xs w-8 group">
+<div class="w-full bg-secondary/80 rounded-t-sm h-44"></div>
+<div class="w-full bg-primary/80 rounded-b-sm h-14"></div>
+<span class="text-[10px] text-outline font-medium mt-sm">Aug 30</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Sentiment Pulse Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-looming">
+<h3 class="font-title-md text-title-md text-on-surface mb-xl">Sentiment Pulse</h3>
+<div class="space-y-xl">
+<div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Positive</span>
+<span class="font-mono-data text-mono-data font-bold text-secondary">64.2%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[64.2%] rounded-full shadow-[0_0_8px_rgba(0,107,95,0.4)] transition-all duration-1000"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Neutral</span>
+<span class="font-mono-data text-mono-data font-bold text-primary">28.5%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[28.5%] rounded-full shadow-[0_0_8px_rgba(53,37,205,0.4)] transition-all duration-1000"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between items-center mb-xs">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Negative</span>
+<span class="font-mono-data text-mono-data font-bold text-error">7.3%</span>
+</div>
+<div class="w-full h-3 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error w-[7.3%] rounded-full shadow-[0_0_8px_rgba(186,26,26,0.4)] transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+<button class="w-full mt-xl py-sm bg-surface-container-low border border-outline-variant text-on-surface font-label-sm text-label-sm rounded-lg hover:bg-surface-container-high transition-colors active:scale-95">
+                        Detailed Segment Analysis
+                    </button>
+</div>
+<!-- Activity Hotspots (Map Placeholder) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-looming relative overflow-hidden min-h-[400px]">
+<div class="flex justify-between items-start mb-lg relative z-10">
+<div>
+<h3 class="font-title-md text-title-md text-on-surface">Activity Hotspots</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Active interaction nodes globally</p>
+</div>
+<div class="flex gap-xs">
+<span class="flex items-center gap-xs px-sm py-xs bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold rounded-full animate-pulse">LIVE DATA</span>
+</div>
+</div>
+<!-- Decorative Map Mockup -->
+<div class="absolute inset-0 map-container opacity-40"></div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<!-- Pulse Dots -->
+<div class="absolute top-[20%] left-[30%] w-4 h-4 bg-primary rounded-full animate-ping opacity-75"></div>
+<div class="absolute top-[20%] left-[30%] w-3 h-3 bg-primary rounded-full"></div>
+<div class="absolute top-[45%] left-[55%] w-6 h-6 bg-secondary rounded-full animate-ping opacity-50"></div>
+<div class="absolute top-[45%] left-[55%] w-4 h-4 bg-secondary rounded-full"></div>
+<div class="absolute top-[70%] left-[80%] w-4 h-4 bg-primary rounded-full animate-ping opacity-75"></div>
+<div class="absolute top-[70%] left-[80%] w-3 h-3 bg-primary rounded-full"></div>
+<div class="absolute top-[40%] left-[15%] w-4 h-4 bg-primary rounded-full animate-ping opacity-75"></div>
+<div class="absolute top-[40%] left-[15%] w-3 h-3 bg-primary rounded-full"></div>
+</div>
+<!-- Map Overlay Tooltip Mock -->
+<div class="absolute bottom-lg left-lg p-md bg-surface-container-lowest/90 backdrop-blur-sm border border-outline-variant rounded-lg shadow-lg z-10 max-w-[200px]">
+<p class="font-label-sm text-label-sm text-on-surface font-bold mb-xs">European Region</p>
+<div class="flex justify-between text-[11px] mb-xs">
+<span class="text-on-surface-variant">Active Users</span>
+<span class="font-mono-data font-bold">12,482</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full">
+<div class="w-3/4 h-full bg-primary rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Feature Preference List -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-looming">
+<h3 class="font-title-md text-title-md text-on-surface mb-lg">Feature Preference</h3>
+<div class="space-y-sm">
+<!-- Feature Row 1 -->
+<div class="p-md bg-surface-container-low rounded-lg flex items-center gap-lg group hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">auto_graph</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Predictive Modeling</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">89% Match</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[89%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Feature Row 2 -->
+<div class="p-md bg-surface-container-low rounded-lg flex items-center gap-lg group hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">database</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Real-time Pipelines</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">76% Match</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[76%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Feature Row 3 -->
+<div class="p-md bg-surface-container-low rounded-lg flex items-center gap-lg group hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">security</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Access Controls</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">42% Match</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[42%] rounded-full"></div>
+</div>
+</div>
+</div>
+<!-- Feature Row 4 -->
+<div class="p-md bg-surface-container-low rounded-lg flex items-center gap-lg group hover:bg-surface-container transition-colors">
+<div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-outline">
+<span class="material-symbols-outlined">api</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-xs">
+<span class="font-body-md text-body-md font-semibold text-on-surface">External API Access</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">31% Match</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-outline w-[31%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Meta -->
+<footer class="flex items-center justify-between pt-xl border-t border-outline-variant text-on-surface-variant font-label-sm text-label-sm">
+<div>Powered by <span class="text-primary font-bold">InsightEngine™</span> AI V4.2</div>
+<div class="flex gap-md">
+<span class="cursor-pointer hover:text-on-surface">System Status: Online</span>
+<span class="cursor-pointer hover:text-on-surface">Data Privacy Policy</span>
+</div>
+</footer>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per instructions for Dashboard) -->
+<script>
+        // Micro-interactions and simulation logic
+        document.querySelectorAll('select').forEach(select => {
+            select.addEventListener('change', function() {
+                // Simulate loading state
+                const main = document.querySelector('main');
+                main.classList.add('opacity-50');
+                setTimeout(() => {
+                    main.classList.remove('opacity-50');
+                }, 400);
+            });
+        });
+
+        // Simple animation for the progress bars on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.h-full');
+            bars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        });
+    </script>
+</body></html>

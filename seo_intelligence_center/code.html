@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SEO Intelligence Center | Industrial Intel</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-background": "#191c1e",
+                        "tertiary-container": "#586076",
+                        "surface-tint": "#4d44e3",
+                        "inverse-primary": "#c3c0ff",
+                        "primary-fixed": "#e2dfff",
+                        "background": "#f7f9fb",
+                        "on-secondary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "on-surface": "#191c1e",
+                        "surface-container-high": "#e6e8ea",
+                        "primary": "#3525cd",
+                        "outline-variant": "#c7c4d8",
+                        "inverse-surface": "#2d3133",
+                        "secondary": "#006b5f",
+                        "surface-container-low": "#f2f4f6",
+                        "tertiary": "#41485e",
+                        "outline": "#777587",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "on-secondary-fixed-variant": "#005048",
+                        "on-secondary-container": "#006f64",
+                        "secondary-fixed-dim": "#4fdbc8",
+                        "on-tertiary-fixed": "#131b2e",
+                        "surface-container-highest": "#e0e3e5",
+                        "primary-container": "#4f46e5",
+                        "on-tertiary-container": "#d4dbf5",
+                        "tertiary-fixed": "#dae2fd",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#6df5e1",
+                        "on-primary-fixed-variant": "#3323cc",
+                        "surface-container": "#eceef0",
+                        "tertiary-fixed-dim": "#bec6e0",
+                        "surface-bright": "#f7f9fb",
+                        "on-secondary-fixed": "#00201c",
+                        "on-primary-container": "#dad7ff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c3c0ff",
+                        "on-tertiary-fixed-variant": "#3f465c",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-fixed": "#0f0069",
+                        "on-primary": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#464555",
+                        "surface": "#f7f9fb",
+                        "secondary-fixed": "#71f8e4",
+                        "on-error-container": "#93000a",
+                        "surface-variant": "#e0e3e5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "lg": "24px",
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "xs": "4px",
+                        "max-width": "1440px",
+                        "md": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "unit": "4px",
+                        "2xl": "48px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "title-md": ["Inter"],
+                        "display-lg": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "mono-data": ["Inter"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "title-md": ["18px", {"lineHeight": "28px", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "mono-data": ["14px", {"lineHeight": "20px", "letterSpacing": "-0.01em", "fontWeight": "400"}],
+                        "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}],
+                        "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7f9fb; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .custom-shadow { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.01); }
+        .gauge-container { position: relative; width: 180px; height: 90px; overflow: hidden; }
+        .gauge-body { position: absolute; top: 0; left: 0; width: 100%; height: 200%; border-radius: 50%; border: 12px solid #eceef0; border-bottom-color: transparent; border-left-color: transparent; transform: rotate(-45deg); }
+        .gauge-fill { position: absolute; top: 0; left: 0; width: 100%; height: 200%; border-radius: 50%; border: 12px solid #3525cd; border-bottom-color: transparent; border-left-color: transparent; transform: rotate(90deg); transition: transform 1s ease-out; }
+    </style>
+</head>
+<body class="bg-background text-on-background">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest dark:bg-inverse-surface border-r border-outline-variant dark:border-outline flex flex-col h-full py-lg px-md z-50">
+<div class="mb-xl px-sm">
+<h1 class="font-title-md text-title-md font-bold text-on-surface dark:text-inverse-on-surface">Industrial Intel</h1>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Marketing B2B</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span>AI Generator</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">quiz</span>
+<span>Survey Builder</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">monitoring</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm bg-primary-container text-on-primary-container font-semibold rounded-lg transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">search_insights</span>
+<span>SEO Center</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+<span>Content Studio</span>
+</a>
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Segmentation</span>
+</a>
+</nav>
+<div class="mt-auto">
+<a class="flex items-center gap-md px-md py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200 cursor-pointer active:scale-95 font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-256px)] h-16 bg-surface-container-lowest/80 backdrop-blur-md dark:bg-inverse-surface/80 border-b border-outline-variant dark:border-outline shadow-sm z-40 flex justify-between items-center px-margin-desktop">
+<div class="flex items-center gap-xl">
+<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-inverse-primary">Industrial Intelligence</span>
+<div class="relative group focus-within:ring-2 focus-within:ring-primary/10 rounded-lg">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline text-[20px]">search</span>
+<input class="bg-surface-container-low border-none rounded-lg py-sm pl-10 pr-md w-64 text-body-md font-body-md focus:ring-0" placeholder="Search insights..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-lg">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors cursor-pointer">dark_mode</button>
+<div class="h-8 w-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHaUa1Zgqy7QtMJm-NL8jWvvahoEYNOcR6dn3-pWL9asdNaNmBybqv2FfP3SFUwYDAkg4A3EVajZjRM6tLUcMguhDiSdRcFhXkgSWGmsuYGYL76TzHqVE5sp4tae4GqDAmg1HiOJE7yOe3B8DhVbDFgV3ZHvge0l9vYGUZiF0Xt5hzfcClRcg4lzZag45U0bPi6zUWVFlynvc0zK8TLXAPqoW5WgiLQ9duG1QMI-Ics97AlV1IuHlINWgE7EjxR8LLgXTrX6KJLnf3"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="ml-64 pt-24 px-margin-desktop pb-xl max-w-max-width mx-auto">
+<!-- Header & Top Stats -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-xl gap-lg">
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-xs">SEO Intelligence Center</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Real-time keyword tracking and organic growth opportunities for industrial markets.</p>
+</div>
+<div class="flex gap-md">
+<button class="px-md py-sm bg-surface-container-lowest border border-outline-variant rounded-lg font-label-sm text-label-sm text-on-surface hover:bg-surface-container-low transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                    Export Report
+                </button>
+<button class="px-md py-sm bg-primary text-on-primary rounded-lg font-label-sm text-label-sm hover:shadow-lg transition-all flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                    Sync Data
+                </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-xl">
+<!-- SEO Impact Health Gauge -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-lg border border-outline-variant custom-shadow flex flex-col items-center">
+<div class="w-full flex justify-between items-center mb-md">
+<h3 class="font-title-md text-title-md text-on-surface">SEO Impact Health</h3>
+<span class="material-symbols-outlined text-outline cursor-help" title="Overall domain authority and content optimization score">info</span>
+</div>
+<div class="gauge-container mb-md">
+<div class="gauge-body"></div>
+<div class="gauge-fill" style="transform: rotate(135deg);"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-end pb-xs">
+<span class="text-[32px] font-bold text-primary">75</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Optimized</span>
+</div>
+</div>
+<div class="text-center">
+<p class="font-body-md text-body-md text-secondary font-medium flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">trending_up</span>
+                        +8.2% vs last week
+                    </p>
+<p class="font-label-sm text-label-sm text-outline mt-xs">Ranked in top 10 for 124 critical terms</p>
+</div>
+</div>
+<!-- AI FAQ Suggestions -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl border border-outline-variant custom-shadow overflow-hidden flex flex-col">
+<div class="p-lg border-b border-surface-container flex justify-between items-center bg-surface-container-lowest">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">auto_awesome</span>
+<h3 class="font-title-md text-title-md text-on-surface">AI FAQ Intelligence</h3>
+</div>
+<span class="px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm">Based on User Surveys</span>
+</div>
+<div class="p-lg grid grid-cols-1 md:grid-cols-2 gap-md flex-1">
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 transition-all cursor-default">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Recommended for /logistics-ops</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">"How does the engine handle variable viscosity in high-heat industrial environments?"</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 transition-all cursor-default">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Recommended for /maintenance-kit</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">"What are the typical lead times for sensor replacement parts in the EMEA region?"</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 transition-all cursor-default">
+<p class="font-label-sm text-label-sm text-primary mb-xs">Recommended for /iot-integration</p>
+<p class="font-body-md text-body-md font-semibold text-on-surface">"Can I integrate existing legacy hardware with the new V3 cloud-link API?"</p>
+</div>
+<div class="bg-surface-container-low p-md rounded-lg border border-outline-variant/30 hover:border-primary/50 transition-all cursor-default flex items-center justify-center border-dashed">
+<button class="text-primary font-label-sm text-label-sm flex items-center gap-xs hover:underline">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                            Generate more questions
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Keyword Opportunities Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant custom-shadow overflow-hidden mb-xl">
+<div class="p-lg border-b border-surface-container flex justify-between items-center">
+<h3 class="font-title-md text-title-md text-on-surface">Keyword Opportunities</h3>
+<div class="flex gap-sm">
+<button class="p-xs text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">filter_list</span></button>
+<button class="p-xs text-outline hover:text-primary transition-colors"><span class="material-symbols-outlined">more_vert</span></button>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-low border-b border-surface-container">
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Keyword</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Search Vol</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Difficulty</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Trend</th>
+<th class="px-lg py-md font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Priority</th>
+<th class="px-lg py-md"></th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Predictive Maintenance AI</span>
+<span class="font-label-sm text-label-sm text-outline">industrial-intel.com/ai-solutions</span>
+</div>
+</td>
+<td class="px-lg py-md font-mono-data text-mono-data text-on-surface">12,400 <span class="text-secondary ml-xs">↑</span></td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-16 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-error w-[65%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">65/100</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<svg class="w-24 h-8 text-secondary" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 25 L10 20 L20 22 L30 15 L40 18 L50 10 L60 12 L70 5 L80 8 L90 2 L100 5" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-error-container text-on-error-container rounded-full font-label-sm text-label-sm">High Impact</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-sm text-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Smart Factory Sensors</span>
+<span class="font-label-sm text-label-sm text-outline">industrial-intel.com/iot</span>
+</div>
+</td>
+<td class="px-lg py-md font-mono-data text-mono-data text-on-surface">8,900 <span class="text-secondary ml-xs">↑</span></td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-16 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[35%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">35/100</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<svg class="w-24 h-8 text-primary" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 28 L10 25 L20 20 L30 22 L40 15 L50 18 L60 10 L70 12 L80 5 L90 8 L100 10" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-secondary-container text-on-secondary-container rounded-full font-label-sm text-label-sm">Quick Win</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-sm text-label-sm">View Details</button>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low transition-colors group">
+<td class="px-lg py-md">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">B2B Manufacturing Data</span>
+<span class="font-label-sm text-label-sm text-outline">industrial-intel.com/analytics</span>
+</div>
+</td>
+<td class="px-lg py-md font-mono-data text-mono-data text-on-surface">4,500 <span class="text-outline ml-xs">~</span></td>
+<td class="px-lg py-md">
+<div class="flex items-center gap-sm">
+<div class="w-16 h-1.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[48%]"></div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface">48/100</span>
+</div>
+</td>
+<td class="px-lg py-md">
+<svg class="w-24 h-8 text-outline" preserveaspectratio="none" viewbox="0 0 100 30">
+<path d="M0 15 L10 14 L20 16 L30 15 L40 14 L50 15 L60 16 L70 15 L80 14 L90 15 L100 16" fill="none" stroke="currentColor" stroke-width="2" vector-effect="non-scaling-stroke"></path>
+</svg>
+</td>
+<td class="px-lg py-md">
+<span class="px-sm py-xs bg-surface-container-high text-on-surface-variant rounded-full font-label-sm text-label-sm">Steady State</span>
+</td>
+<td class="px-lg py-md text-right">
+<button class="opacity-0 group-hover:opacity-100 transition-opacity text-primary font-label-sm text-label-sm">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Critical Content Gaps -->
+<h3 class="font-title-md text-title-md text-on-surface mb-md">Critical Content Gaps</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant custom-shadow flex flex-col hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="h-10 w-10 bg-error-container/20 text-error rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<span class="font-label-sm text-label-sm text-error font-semibold">-12.4k Monthly Traffic Loss</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Fleet Electrification Trends</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-1">Competitors "LogisCore" and "FastTrack" are outranking you on sustainability whitepapers.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">LogisCore</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Sustainability</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">EV Adoption</span>
+</div>
+<button class="w-full py-sm bg-surface-container-low text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all">Create Gap Content</button>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant custom-shadow flex flex-col hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="h-10 w-10 bg-secondary-container/20 text-secondary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">trending_down</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">-8.2k Monthly Traffic Loss</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Edge Computing Latency</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-1">Missing technical benchmarks and "vs" pages for local edge processing hardware.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Benchmark</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Hardware</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Latency</span>
+</div>
+<button class="w-full py-sm bg-surface-container-low text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all">Create Gap Content</button>
+</div>
+<div class="bg-surface-container-lowest p-lg rounded-xl border border-outline-variant custom-shadow flex flex-col hover:border-primary/40 transition-colors">
+<div class="flex justify-between items-start mb-md">
+<div class="h-10 w-10 bg-primary-container/10 text-primary rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined">lightbulb</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-semibold">Emerging Topic Opportunity</span>
+</div>
+<h4 class="font-title-md text-title-md text-on-surface mb-sm">Regulatory Compliance 2025</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-1">Early search volume spikes detected for upcoming EMEA data sovereignty laws.</p>
+<div class="flex flex-wrap gap-xs mb-md">
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Regulation</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">EMEA</span>
+<span class="px-xs py-[2px] bg-surface-container border border-outline-variant rounded font-label-sm text-label-sm text-outline">Compliance</span>
+</div>
+<button class="w-full py-sm bg-surface-container-low text-primary font-label-sm text-label-sm rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-all">Create Gap Content</button>
+</div>
+</div>
+</main>
+<script>
+        // Simple micro-interaction for the search bar
+        const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('focus', () => {
+            searchInput.parentElement.classList.add('ring-2', 'ring-primary/20');
+        });
+        searchInput.addEventListener('blur', () => {
+            searchInput.parentElement.classList.remove('ring-2', 'ring-primary/20');
+        });
+
+        // Simulating the gauge fill animation on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                const fill = document.querySelector('.gauge-fill');
+                // 75% health = (0.75 * 180deg) - 45deg start = 135deg rotation
+                fill.style.transform = 'rotate(135deg)';
+            }, 300);
+        });
+    </script>
+</body></html>
